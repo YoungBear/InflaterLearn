@@ -21,3 +21,29 @@ allprojects {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
+ext {
+
+    configuration = [
+            compileSdkVersion: 26,
+            buildToolsVersion: "26.0.1",
+            package          : "com.example.inflaterlearn",
+            minSdkVersion    : 17,
+            targetSdkVersion : 26,
+
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    libraries = [
+            espressoVersion  : "2.2.2",
+            constraintVersion: "1.0.2",
+            junitVersion     : "4.12",
+
+            supportVersion   : "26.0.0-alpha1",
+
+            butterknife      : "8.8.1"
+
+    ]
+
+}
