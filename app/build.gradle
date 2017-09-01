@@ -14,10 +14,31 @@ android {
         versionName cfg.versionName
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
-    buildTypes {
+
+    signingConfigs {
+        debug {
+            storeFile file("debug.keystore")
+        }
+
         release {
+            storeFile file('test_example.jks')
+            storePassword 'test_example'
+            keyAlias 'test_alias'
+            keyPassword '123456'
+        }
+    }
+
+    buildTypes {
+
+        debug {
             minifyEnabled false
+        }
+
+        release {
+            minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
         }
     }
 }
